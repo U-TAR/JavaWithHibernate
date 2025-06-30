@@ -387,7 +387,7 @@ Sonrasında kullandığınız IDE aracılığı ile veya terminal sayesinde **cl
 mvn clean install
 ```
 
-Şimdi sıra **Hibernate'i** yapılandıralım. Öncelikle ***Proje_Ismi/src/main/resources*** klasörünün altında ***hibernate.cfg.xml*** doysaını oluşturalım ve içerisine şunları yazalım.
+Şimdi sıra **Hibernate'i** yapılandıralım. Öncelikle ***Proje_Ismi/src/main/resources*** klasörünün altında ***hibernate.cfg.xml*** doysaını oluşturalım ve içerisine şunları yazalım. Bu komutların taslağını isterseniz buradan yada dilerseniz [Tutorials Point](https://www.tutorialspoint.com/hibernate/hibernate_configuration.htm) sitesindeki bu adresten alabilirsiniz.
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
