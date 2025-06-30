@@ -342,7 +342,7 @@ Adım 3 Bu sayfadaki kodu kopyalayın
 ![Adıım 3](img/MavenRepo3.png)
 
 
-Projenin ana dizinindeki pom.xml doyasını açalım ve içerisine şu komutları ekleyelim:
+Projenin ana dizinindeki pom.xml doyasını açalım ve içerisine [Maven Repository](https://mvnrepository.com/) den kopyaladığımız şu komutları ekleyelim:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -355,6 +355,8 @@ Projenin ana dizinindeki pom.xml doyasını açalım ve içerisine şu komutlar�
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
+
+        <!-- Eklenen kısımlar -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -368,6 +370,7 @@ Projenin ana dizinindeki pom.xml doyasını açalım ve içerisine şu komutlar�
             <artifactId>mysql-connector-j</artifactId>
             <version>9.3.0</version>
         </dependency>
+        <!-- Eklenen kısımlar -->
     </dependencies>
 
     <properties>
@@ -378,6 +381,13 @@ Projenin ana dizinindeki pom.xml doyasını açalım ve içerisine şu komutlar�
 </project>
 
 ```
+
+Sonrasında kullandığınız IDE aracılığı ile veya terminal sayesinde **clean install** yapalım Maven için ve paketlerimiz sağlıklı bir şekilde indirilsin projemize. Terminalde şu komutu çalıştıralım: 
+```bash
+mvn clean install
+```
+
+Tamam şuan ihtiyacımız olan paketleri ekledik şimdi sınıflarımızı oluşturalım. Öncelikle bir **Person** sınıfına ihtiyacımız var bu sınıf bizim rehberimizde kaydedeceğimiz kişiler olacaklar
 
 <a id="advanced-topics"></a>
 ## 4. İleri Düzey Konular
