@@ -387,7 +387,37 @@ Sonrasında kullandığınız IDE aracılığı ile veya terminal sayesinde **cl
 mvn clean install
 ```
 
-Tamam şuan ihtiyacımız olan paketleri ekledik şimdi sınıflarımızı oluşturalım. Öncelikle bir **Person** sınıfına ihtiyacımız var bu sınıf bizim rehberimizde kaydedeceğimiz kişiler olacaklar
+Şimdi sıra **Hibernate'i** yapılandıralım. Öncelikle ***Proje_Ismi/src/main/resources*** klasörünün altında ***hibernate.cfg.xml*** doysaını oluşturalım ve içerisine şunları yazalım.
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- hbm2dll.auto değeri ilk başta create-drop olarak tanımlanıyor çünkü şuan ortada tablolar yok o yüzden bu komut program her çalıştığında öncelikle veritabanını temizler sonra baştan oluşturur-->
+        <property name="hbm2ddl.auto">create-drop</property>
+
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Buradaki adres sizin kendi veritabanınızın adresi olmalıdır ve bu veritabanını manuel olarak oluşturmanız lazım-->
+        <property name="connection.url">jdbc:mysql://localhost/orm</property>
+
+        <!-- Bağlatıda kullandığınız kullanıcı adı ve şifreniz-->
+        <property name="connection.username">root</property>
+        <property name="connection.password">sifreniz</property>
+
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <!-- Hibernate'in arka planda çalıştırdığı SQL sorgularını Debug panelinde görmek istiyorsanız true olarak ayarlayın-->
+        <property name="show_sql">true</property>
+    </session-factory>
+</hibernate-configuration>
+```
+
+Tamam şuan ihtiyacımız olan paketleri ve ayar dosyasını ekledik şimdi sınıflarımızı oluşturalım. Öncelikle bir **Person** sınıfına ihtiyacımız var bu sınıftan türetilen nesneler bizim rehberimizde kaydedeceğimiz kişiler olacaklar. Fakat bir kişinin birden fazla numarası, epostası ve adresi olabileceği için biz bunları ***ONE-TO-MANY*** ilişki olarak tanımlayacağız ve bu özellikler için ayrı sınıflar oluşturacağız.
+
 
 <a id="advanced-topics"></a>
 ## 4. İleri Düzey Konular
